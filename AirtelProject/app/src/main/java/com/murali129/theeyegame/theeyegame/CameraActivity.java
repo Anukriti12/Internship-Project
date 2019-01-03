@@ -323,7 +323,10 @@ public final class CameraActivity extends Activity {
     static Activity thisActivity = null;
     public static void showScore(float score, float score1)
     {
-        textView.setText(score+" "+score1);
+        String s1= String.format("%.3f",score);
+        String s2= String.format("%.3f",score1);
+
+        textView.setText( s1+ " "+s2);
     }
 
     class MyGLSurfaceView extends GLSurfaceView {

@@ -5,7 +5,6 @@ package com.murali129.theeyegame.theeyegame;;
  */
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
@@ -14,7 +13,6 @@ import android.graphics.YuvImage;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 import android.hardware.Camera.Size;
-import android.hardware.camera2.params.Face;
 import android.os.Build;
 import android.os.SystemClock;
 import android.util.Log;
@@ -22,15 +20,10 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.WindowManager;
 
-import com.murali129.theeyegame.theeyegame.CameraActivity;
-
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Encapsulates the core image scanning.
@@ -177,8 +170,22 @@ class FaceScanner implements Camera.PreviewCallback, Camera.AutoFocusCallback,
             setCameraDisplayOrientation(mCamera);
 
             Camera.Parameters parameters = mCamera.getParameters();
-
+            // Integer sip=Size[0];
+           // mCamera.
             List<Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
+            List<int[]> supportedfps = parameters.getSupportedPreviewFpsRange();
+
+            int []v={60};
+
+            supportedfps.add(v);
+
+//            for(int i=0;i<supportedPreviewSizes.size();i++) {
+//                supportedfps.set(i,v);
+//            }
+                //System.out.println("ABCDDD"+ supportedPreviewSizes.get(i));}
+
+
+           // public List<Integer> getSupportedPreviewFrameRates ()
             if (supportedPreviewSizes != null) {
                 Size previewSize = null;
                 for (Size s : supportedPreviewSizes) {

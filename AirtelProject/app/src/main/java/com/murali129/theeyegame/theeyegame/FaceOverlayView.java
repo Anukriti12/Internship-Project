@@ -97,8 +97,8 @@ public class FaceOverlayView extends View {
             return blink;
         }
 
-        if(leftEyeOpenProbability>0.9 || rightEyeOpenProbability > 0.9){
-            boolean blinks= false;
+        if((leftEyeOpenProbability>0.85 && rightEyeOpenProbability > 0.85) )//&& (leftEyeOpenProbability>0.6 || rightEyeOpenProbability>0.9) && (leftEyeOpenProbability>0.9 || rightEyeOpenProbability > 0.6)) {
+        {  boolean blinks= false;
             if(currentLeftEyeOpenProbability<0.6 || rightEyeOpenProbability< 0.6){
                // CameraActivity.showScore(face.getIsLeftEyeOpenProbability(), face.getIsRightEyeOpenProbability());
                 blinks = true;
