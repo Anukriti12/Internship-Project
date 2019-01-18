@@ -104,17 +104,8 @@ public final class CameraActivity extends Activity {
      */
     public static final String EXTRA_REQUIRE_CARDHOLDER_NAME = "io.card.payment.requireCardholderName";
 
-    /**
-     * Boolean extra. Optional. Defaults to <code>false</code>. If set, the card.io logo will be
-     * shown instead of the PayPal logo.
-     */
     public static final String EXTRA_USE_CARDIO_LOGO = "io.card.payment.useCardIOLogo";
 
-    /**
-     * Parcelable extra containing {@link CreditCard}. The data intent returned to your {@link android.app.Activity}'s
-     * {@link Activity#onActivityResult(int, int, Intent)} will contain this extra if the resultCode is
-     * {@link #RESULT_CARD_INFO}.
-     */
     public static final String EXTRA_SCAN_RESULT = "io.card.payment.scanResult";
 
     /**
@@ -122,12 +113,6 @@ public final class CameraActivity extends Activity {
      */
     private static final String EXTRA_MANUAL_ENTRY_RESULT = "io.card.payment.manualEntryScanResult";
 
-    /**
-     * Boolean extra. Optional. Defaults to <code>false</code>. Removes the keyboard button from the
-     * scan screen.
-     * <br><br>
-     * If scanning is unavailable, the {@link android.app.Activity} result will be {@link #RESULT_SCAN_NOT_AVAILABLE}.
-     */
     public static final String EXTRA_SUPPRESS_MANUAL_ENTRY = "io.card.payment.suppressManual";
 
     /**
@@ -236,13 +221,6 @@ public final class CameraActivity extends Activity {
      */
     public static final int RESULT_ENTRY_CANCELED = lastResult++;
 
-    /**
-     * result code indicating that scan is not available. Only returned when
-     * {@link #EXTRA_SUPPRESS_MANUAL_ENTRY} is set and scanning is not available.
-     * <br><br>
-     * This error can be avoided in normal situations by checking
-     * {@link #canReadCardWithCamera()}.
-     */
     public static final int RESULT_SCAN_NOT_AVAILABLE = lastResult++;
 
     /**
@@ -668,7 +646,7 @@ public final class CameraActivity extends Activity {
         switch (requestCode) {
             case DATA_ENTRY_REQUEST_ID:
                 if (resultCode == RESULT_CANCELED) {
-                    Log.d(TAG, "ignoring onActivityResult(RESULT_CANCELED) caused only when Camera Permissions are Denied in Android 23");
+                    Log.d(TAG, "ignoring result(RESULT_CANCELED) caused only when Camera Permissions are Denied in Android 23");
                 } else if (resultCode == RESULT_CARD_INFO || resultCode == RESULT_ENTRY_CANCELED
                         || manualEntryFallbackOrForced) {
                     if (data != null && data.hasExtra(EXTRA_SCAN_RESULT)) {

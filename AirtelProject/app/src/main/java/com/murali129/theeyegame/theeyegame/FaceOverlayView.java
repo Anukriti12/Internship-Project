@@ -21,9 +21,7 @@ import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
 import com.google.android.gms.vision.face.Landmark;
 
-/**
- * Created by Paul on 11/4/15.
- */
+
 
 public class FaceOverlayView extends View {
     private Bitmap mBitmap;
@@ -65,6 +63,7 @@ public class FaceOverlayView extends View {
         if(isEyeBlinked().blinked){
             Log.d("isEyeBlinked","eye blink is observed");
             blinkCount++;
+
              CameraActivity.showScore((float) blinkCount,0); // blinkCount);
         }
         else {
