@@ -13,9 +13,12 @@
 // limitations under the License.
 package com.google.firebase.samples.apps.mlkit;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.hardware.camera2.CameraCharacteristics;
+import android.provider.MediaStore;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -80,6 +83,9 @@ public class GraphicOverlay extends View {
      *
      * @param canvas drawing canvas
      */
+
+
+
     public abstract void draw(Canvas canvas);
 
     public float scaleX(float horizontal) {

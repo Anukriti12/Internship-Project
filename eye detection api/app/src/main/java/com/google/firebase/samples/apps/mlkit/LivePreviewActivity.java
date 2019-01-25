@@ -14,6 +14,7 @@
 package com.google.firebase.samples.apps.mlkit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ import com.google.firebase.ml.common.FirebaseMLException;
 import com.google.firebase.samples.apps.mlkit.barcodescanning.BarcodeScanningProcessor;
 import com.google.firebase.samples.apps.mlkit.custommodel.CustomImageClassifierProcessor;
 import com.google.firebase.samples.apps.mlkit.facedetection.FaceDetectionProcessor;
+import com.google.firebase.samples.apps.mlkit.facedetection.FaceGraphic;
 import com.google.firebase.samples.apps.mlkit.imagelabeling.ImageLabelingProcessor;
 import com.google.firebase.samples.apps.mlkit.textrecognition.TextRecognitionProcessor;
 
@@ -96,6 +98,8 @@ public final class LivePreviewActivity extends AppCompatActivity
 
     if (allPermissionsGranted()) {
       createCameraSource(selectedModel);
+      System.out.println(">>" +FaceGraphic.blink);
+
     } else {
       getRuntimePermissions();
     }

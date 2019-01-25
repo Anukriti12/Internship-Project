@@ -259,6 +259,8 @@ public final class StillImageActivity extends AppCompatActivity {
     }
   }
 
+
+
   private void tryReloadAndDetectInImage() {
     try {
       if (imageUri == null) {
